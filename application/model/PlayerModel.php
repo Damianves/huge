@@ -57,7 +57,7 @@ class PlayerModel
         }
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "UPDATE players SET player_name = ':player_name', player_surname = ':player_surname' WHERE player_id = :player_id";
+        $sql = "UPDATE players SET player_name = :player_name, player_surname = :player_surname WHERE player_id = :player_id";
         $query = $database->prepare($sql);
         $query->execute(array(
             ':player_id' => $player_id, 

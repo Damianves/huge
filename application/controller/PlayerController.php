@@ -27,7 +27,7 @@ class PlayerController extends Controller
     { 
 
         PlayerModel::updatePlayer(Request::post('player_id'), Request::post('player_name'), Request::post('player_surname'));
-        //Redirect::to('player');
+        Redirect::to('player');
         
     }
 
