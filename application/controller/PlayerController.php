@@ -26,8 +26,8 @@ class PlayerController extends Controller
     public function editSave()
     { 
 
-        PlayerModel::updatePlayer(Request::post('player_id'), Request::post('Player_name'),Request::post('Player_surname'));
-        Redirect::to('player');
+        PlayerModel::updatePlayer(Request::post('player_id'), Request::post('player_name'), Request::post('player_surname'));
+        //Redirect::to('player');
         
     }
 

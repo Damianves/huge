@@ -55,12 +55,15 @@ class PlayerModel
         if (!$player_id || !$player_name || !$player_surname) {
             return false;
         }
-
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "UPDATE players SET player_name = :player_name, player_surname = :player_surname WHERE player_id = :player_id";
+        $sql = "UPDATE players SET player_name = ':player_name', player_surname = ':player_surname' WHERE player_id = :player_id";
         $query = $database->prepare($sql);
-        $query->execute(array(':player_id' => $player_id, ':player_name' => $player_name, ':player_surname' => $player_surname ));
+        $query->execute(array(
+            ':player_id' => $player_id, 
+            ':player_name' => $player_name, 
+            ':player_surname' => $player_surname
+            ));
 
         if ($query->rowCount() == 1) {
             return true;
